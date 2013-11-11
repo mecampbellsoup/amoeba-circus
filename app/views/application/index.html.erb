@@ -1,5 +1,5 @@
-<h1>Listing amoebas</h1>
-
+<br />
+<h1>Amoebas</h1>
 <table>
   <thead>
     <tr>
@@ -32,3 +32,38 @@
 <br>
 
 <%= link_to 'New Amoeba', new_amoeba_path %>
+<br /><br />
+<br /><br />
+<h1>Acts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Amoebas</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acts.each do |act| %>
+      <tr>
+        <td><%= act.title %></td>
+        <td><%= act.date.strftime("%m-%d-%Y") %></td>
+        <% amoebas = act.amoebas.map(&:name) %>
+        <td><%= amoebas.to_sentence %></td>
+        <td><%= link_to 'Show', act %></td>
+        <td><%= link_to 'Edit', edit_act_path(act) %></td>
+        <td><%= link_to 'Destroy', act, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Act', new_act_path %>
+

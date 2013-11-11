@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110200431) do
+ActiveRecord::Schema.define(version: 20131110203205) do
 
   create_table "acts", force: true do |t|
     t.string   "title"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20131110200431) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "amoeba_acts", force: true do |t|
+    t.integer  "amoeba_id"
+    t.integer  "act_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "amoeba_acts", ["act_id"], name: "index_amoeba_acts_on_act_id"
+  add_index "amoeba_acts", ["amoeba_id"], name: "index_amoeba_acts_on_amoeba_id"
 
   create_table "amoebas", force: true do |t|
     t.string   "name"

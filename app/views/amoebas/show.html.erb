@@ -7,7 +7,7 @@
 
 <p>
   <strong>Talent:</strong>
-  <%= @amoeba.talent %>
+  <%= @amoeba.talent.name %>
 </p>
 
 <p>
@@ -15,5 +15,13 @@
   <%= @amoeba.generation %>
 </p>
 
+<p>
+  <strong>Acts:</strong>
+  <ul><% @amoeba.acts.each do |a| %>
+    <li><%= link_to a.title, a %></li>
+  <% end %></ul>
+</p>
+
+<%= link_to "Split #{@amoeba.name}!", edit_amoeba_path(@amoeba), data: { confirm: "Are you sure? This action will split #{@amoeba.name} into two!" } %> |
 <%= link_to 'Edit', edit_amoeba_path(@amoeba) %> |
 <%= link_to 'Back', amoebas_path %>

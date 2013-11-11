@@ -2,5 +2,8 @@
 
 <%= render 'form' %>
 
+<%= button_to [:split, @amoeba] do %>
+  Split <strong><%= @amoeba.name %></strong>
+<% end %>
 <%= link_to 'Show', @amoeba %> |
 <%= link_to 'Back', amoebas_path %>

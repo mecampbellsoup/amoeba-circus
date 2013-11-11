@@ -1,6 +1,9 @@
 AmoebaCircus::Application.routes.draw do
   
-  root :to => redirect("/acts")
+  root :to => redirect("/dashboard")
+  get '/dashboard', to: 'application#index', :as => 'dashboard'
+  post '/amoebas/:id/split', to: 'amoebas#split', :as => 'split_amoeba'
+
 
   resources :acts
 
